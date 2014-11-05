@@ -103,7 +103,7 @@ A helper class that runs [peverfiy](http://msdn.microsoft.com/en-us/library/62bw
 
 #### 3. Tests
 
-Tests project show how to test the code whish weaved during compilation process. The actual unit test project contains HelloWorldWeaverTester.cs and CallCounterWeaverTester.cs.
+Tests project showes how to test the code weaved during compilation process. The actual unit test project contains HelloWorldWeaverTester.cs and CallCounterWeaverTester.cs.
 
 WeaverTests.cs takes weaved assembly to System.Reflection.Assembly object will test.
 
