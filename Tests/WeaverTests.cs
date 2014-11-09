@@ -33,7 +33,7 @@ namespace TeoVincent.Tests
             File.Copy(assemblyPath, newAssemblyPath, true);
 
             var moduleDefinition = ModuleDefinition.ReadModule(newAssemblyPath);
-            var weavingTask = new ModuleWeaver
+            var weavingTask = new HellowWorldWeaver
             {
                 ModuleDefinition = moduleDefinition
             };

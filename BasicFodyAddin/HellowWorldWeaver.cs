@@ -6,14 +6,14 @@ using Mono.Cecil.Rocks;
 
 namespace TeoVincent.BasicFodyAddin.Fody
 {
-    public class ModuleWeaver
+    public class HellowWorldWeaver
     {
         public Action<string> LogInfo { get; set; }
         public ModuleDefinition ModuleDefinition { get; set; }
 
         private TypeSystem typeSystem;
 
-        public ModuleWeaver()
+        public HellowWorldWeaver()
         {
             LogInfo = m => { };
         }
@@ -24,14 +24,12 @@ namespace TeoVincent.BasicFodyAddin.Fody
             var newType = new TypeDefinition(null, "Hello", TypeAttributes.Public, typeSystem.Object);
 
             AddConstructor(newType);
-
             AddHelloWorld(newType);
-
             ModuleDefinition.Types.Add(newType);
+            LogInfo("Added type 'Hello' with method 'World'.");
 
             AddMethodCallsCounter();
-
-            LogInfo("Added type 'Hello' with method 'World'.");
+            LogInfo("Added aspect 'MethodCallsCounter'");
         }
 
         private void AddConstructor(TypeDefinition newType)

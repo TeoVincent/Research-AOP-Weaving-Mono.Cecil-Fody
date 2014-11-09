@@ -8,7 +8,7 @@ namespace TeoVincent.BasicFodyAddin.Fody
         private readonly IAttributeFinder atributeFinder;
         private readonly ModuleDefinition moduleDefinition;
 
-        private const string ATTRIBUTE_FULL_NAME = "TeoVincent.AssemblyToProcess.Attributes.CountCallsThemAttribute";
+        private const string COUNT_CALLS_THEM_ATTRIBUTE_NAME = "TeoVincent.AssemblyToProcess.Attributes.CountCallsThemAttribute";
         private const string PROPERTY_POSTFIX = "CallsCount";
 
         public MethodCallsCounterWeaver(IAttributeFinder atributeFinder, ModuleDefinition moduleDefinition)
@@ -19,7 +19,7 @@ namespace TeoVincent.BasicFodyAddin.Fody
 
         public void AddMethodCallsCounter()
         {
-            var mtCollection = atributeFinder.FindAllMethods(moduleDefinition, ATTRIBUTE_FULL_NAME);
+            var mtCollection = atributeFinder.FindAllMethods(moduleDefinition, COUNT_CALLS_THEM_ATTRIBUTE_NAME);
 
             foreach (var mt in mtCollection)
             {

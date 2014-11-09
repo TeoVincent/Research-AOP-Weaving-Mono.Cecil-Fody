@@ -16,7 +16,7 @@ namespace TeoVincent.Tests
         }
 
         [Test]
-        public void Validate_OneTime_OneCall_Of_Method()
+        public void Validate_One_Time_Call_Of_Method()
         {
             // 1) arrange
             var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.Student");
@@ -32,7 +32,7 @@ namespace TeoVincent.Tests
         }
 
         [Test]
-        public void Validate_ZeroTime_OneCall_Of_Method()
+        public void Validate_No_Call_Of_Method()
         {
             // 1) arrange
             var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.Student");
@@ -47,7 +47,7 @@ namespace TeoVincent.Tests
         }
 
         [Test]
-        public void Validate_MoreThenOneTime_OneCall_Of_Method()
+        public void Validate_Two_Times_Call_Of_Method()
         {
             // 1) arrange
             var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.Student");

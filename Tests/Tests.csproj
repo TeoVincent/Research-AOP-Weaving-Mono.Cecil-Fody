@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CallCounterWeaver.cs" />
+    <Compile Include="CallCounterWeaverTester.cs" />
     <Compile Include="HelloWorldWeaverTester.cs" />
     <Compile Include="Verifier.cs" />
     <Compile Include="WeaverTests.cs" />
