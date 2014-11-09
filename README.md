@@ -2,8 +2,6 @@
 
 This is a simple solution built as a starter for writing [Fody](https://github.com/Fody/Fody) addins.
 
-## The moving parts
-
 ### BasicFodyAddin Project
 
 The project that does the weaving. 
@@ -12,9 +10,51 @@ The project that does the weaving.
 
 It outputs a file named SampleFodyAddin.Fody. The '.Fody' suffix is necessary for it to be picked up by Fody.
 
-#### ModuleWeaver
+#### MethodCallsCounterWeaver
 
-ModuleWeaver.cs is where the target assembly is modified. Fody will pick up this type during a its processing.
+MethodCallsCounterWeaver.cs is where the target assembly is modified. Fody will pick up this type during a its processing.
+
+In this case a new type conteins a method with Attribute 'CountCallsThemAttribute' is being modified by inject counter of call these methhods.
+
+For example code before weaving:
+
+	public class Businessman
+    {
+        [CountCallsThem]
+        public void MakeNewSturtUp()
+        {
+            // ...
+        }
+
+        [CountCallsThem]
+        public void BuyCar()
+        {
+            // ...
+        }
+    }
+	
+The code after weaving:
+
+	public class Businessman
+	{
+		public int MakeNewSturtUpCallsCount;
+		
+		public int BuyCarCallsCount;
+		
+		[CountCallsThem]
+		public void MakeNewSturtUp()
+		{
+			this.MakeNewSturtUpCallsCount++;
+		}
+		
+		[CountCallsThem]
+		public void BuyCar()
+		{
+			this.BuyCarCallsCount++;
+		}
+	}
+
+#### HellowWorldWeaver
 
 In this case a new type is being injected into the target assembly that looks like this.
 
@@ -37,7 +77,6 @@ This project uses  [pepita](https://github.com/SimonCropp/Pepita) to construct t
 
 For more information on the nuget structure of Fody addins see [DeployingAddinsAsNugets](https://github.com/Fody/Fody/wiki/DeployingAddinsAsNugets)
 
-
 ### AssemblyToProcess Project
 
 A target assembly to process and then validate with unit tests.
@@ -54,17 +93,19 @@ Note that it does not reference AssemblyToProcess as this could cause assembly l
 
 The test assembly contains three parts.
 
-#### 1. WeaverHelper
+#### 1. WeaverTests.Setup()
 
 A helper class that takes the output of  AssemblyToProcess and uses ModuleWeaver to process it. It also create a copy of the target assembly suffixed with '2' so a side-by-side comparison of the before and after IL can be done using a decompiler.
 
-#### 2. Verifier
+#### 2. WeaverTests.Verifier()
 
 A helper class that runs [peverfiy](http://msdn.microsoft.com/en-us/library/62bwd2yd.aspx) to validate the resultant assembly.
 
 #### 3. Tests
 
-The actual unit tests that use WeaverHelper and Verifier. It has one test to construct and execute the injected class.
+Tests project showes how to test the code weaved during compilation process. The actual unit test project contains HelloWorldWeaverTester.cs and CallCounterWeaverTester.cs.
+
+WeaverTests.cs takes weaved assembly to System.Reflection.Assembly object will test.
 
 ### No reference to Fody
 
