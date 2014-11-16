@@ -19,7 +19,7 @@ namespace TeoVincent.Tests
         public void Validate_One_Time_Call_Of_Method()
         {
             // 1) arrange
-            var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.Student");
+            var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.MethodCallsCouting.Student");
             dynamic instance = Activator.CreateInstance(type);
 
             // 2) act
@@ -35,7 +35,7 @@ namespace TeoVincent.Tests
         public void Validate_No_Call_Of_Method()
         {
             // 1) arrange
-            var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.Student");
+            var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.MethodCallsCouting.Student");
             dynamic instance = Activator.CreateInstance(type);
 
             // 2) act
@@ -50,7 +50,7 @@ namespace TeoVincent.Tests
         public void Validate_Two_Times_Call_Of_Method()
         {
             // 1) arrange
-            var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.Student");
+            var type = weaverTests.Assembly.GetType("TeoVincent.AssemblyToProcess.MethodCallsCouting.Student");
             dynamic instance = Activator.CreateInstance(type);
 
             // 2) act

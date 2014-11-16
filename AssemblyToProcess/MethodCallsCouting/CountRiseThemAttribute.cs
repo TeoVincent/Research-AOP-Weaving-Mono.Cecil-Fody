@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TeoVincent.AssemblyToProcess.Attributes
+namespace TeoVincent.AssemblyToProcess.MethodCallsCouting
 {
     public class CountCallsThemAttribute : Attribute
     {

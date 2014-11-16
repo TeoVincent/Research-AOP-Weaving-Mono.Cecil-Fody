@@ -1,6 +1,4 @@
-﻿using TeoVincent.AssemblyToProcess.Attributes;
-
-namespace TeoVincent.AssemblyToProcess
+﻿namespace TeoVincent.AssemblyToProcess.MethodCallsCouting
 {
     public class Student
     {

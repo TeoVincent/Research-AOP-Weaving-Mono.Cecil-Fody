@@ -39,9 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Businessman.cs" />
-    <Compile Include="Attributes\CountRiseThemAttribute.cs" />
-    <Compile Include="Student.cs" />
+    <Compile Include="Events\AEvent.cs" />
+    <Compile Include="Events\EventAttribute.cs" />
+    <Compile Include="Events\MyWeavedEvent.cs" />
+    <Compile Include="MethodCallsCouting\Businessman.cs" />
+    <Compile Include="MethodCallsCouting\CountRiseThemAttribute.cs" />
+    <Compile Include="Events\MyExampleEvent.cs" />
+    <Compile Include="MethodCallsCouting\Student.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

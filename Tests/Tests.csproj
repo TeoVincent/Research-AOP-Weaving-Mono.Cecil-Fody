@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CallCounterWeaverTester.cs" />
+    <Compile Include="EventsWeavingTester.cs" />
     <Compile Include="HelloWorldWeaverTester.cs" />
     <Compile Include="Verifier.cs" />
     <Compile Include="WeaverTests.cs" />
