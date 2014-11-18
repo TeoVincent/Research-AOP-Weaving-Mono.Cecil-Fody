@@ -56,6 +56,7 @@ namespace TeoVincent.Tests
 
             weavers.Add(new HellowWorldWeaverCreator(moduleDefinition).WeaverFactory());
             weavers.Add(new MethodCallsCounterWeaverCreator(moduleDefinition).WeaverFactory());
+            weavers.Add(new EventsWeaverCreator(moduleDefinition).WeaverFactory());
 
             return weavers;
         }

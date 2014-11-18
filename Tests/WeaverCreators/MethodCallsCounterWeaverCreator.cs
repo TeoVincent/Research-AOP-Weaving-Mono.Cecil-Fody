@@ -17,4 +17,18 @@ namespace TeoVincent.Tests.WeaverCreators
             return methodCallsCounterWeaver;
         }
     }
+
+    class EventsWeaverCreator : WeaverCreator
+    {
+        public EventsWeaverCreator(ModuleDefinition moduleDefinition) 
+            : base(moduleDefinition)
+        {
+
+        }
+
+        public override IWeaver WeaverFactory()
+        {
+            return new EventsWeaver(ModuleDefinition);
+        }
+    }
 }

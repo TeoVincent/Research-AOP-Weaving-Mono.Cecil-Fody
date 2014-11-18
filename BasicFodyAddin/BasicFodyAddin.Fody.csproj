@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="AttributeFinder.cs" />
+    <Compile Include="EventsWeaver.cs" />
     <Compile Include="MethodCallsCounterWeaver.cs" />
     <Compile Include="HellowWorldWeaver.cs" />
     <Compile Include="MethodInType.cs" />
