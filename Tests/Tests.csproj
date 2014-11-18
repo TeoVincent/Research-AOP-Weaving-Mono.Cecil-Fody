@@ -58,6 +58,7 @@
     <Compile Include="CallCounterWeaverTester.cs" />
     <Compile Include="EventsWeavingTester.cs" />
     <Compile Include="HelloWorldWeaverTester.cs" />
+    <Compile Include="WeaverCreators\EventsWeaverCreator.cs" />
     <Compile Include="WeaverCreators\HellowWorldWeaverCreator.cs" />
     <Compile Include="WeaverCreators\MethodCallsCounterWeaverCreator.cs" />
     <Compile Include="Verifier.cs" />
