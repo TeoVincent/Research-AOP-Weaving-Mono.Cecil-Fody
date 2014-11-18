@@ -13,7 +13,7 @@ namespace TeoVincent.Tests.WeaverCreators
 
         public override IWeaver WeaverFactory()
         {
-            return new EventsWeaver(ModuleDefinition);
+            return new EventsWeaver(ModuleDefinition, new AttributeFinder());
         }
     }
 }

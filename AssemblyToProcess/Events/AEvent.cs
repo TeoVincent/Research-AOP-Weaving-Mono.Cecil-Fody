@@ -30,7 +30,7 @@ namespace TeoVincent.AssemblyToProcess.Events
             : this(strChildType, DateTime.Now)
         { }
 
-        protected AEvent(string strChildType, DateTime dtWhen)
+        private AEvent(string strChildType, DateTime dtWhen)
         {
             this.strChildType = strChildType;
             this.dtWhen = dtWhen;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using Mono.Cecil;
 
 namespace TeoVincent.BasicFodyAddin.Fody
@@ -6,6 +7,7 @@ namespace TeoVincent.BasicFodyAddin.Fody
     public interface IAttributeFinder
     {
         IEnumerable<MethodInType> FindAllMethods(ModuleDefinition moduleDefinition, string attributeFullName);
+        IEnumerable<TypeDefinition> FindAllTypes(ModuleDefinition moduleDefinition, string attributeFullName);
     }
     
     public class AttributeFinder : IAttributeFinder
@@ -31,6 +33,19 @@ namespace TeoVincent.BasicFodyAddin.Fody
             }
 
             return mtCollection;
+        }
+
+        public IEnumerable<TypeDefinition> FindAllTypes(ModuleDefinition moduleDefinition, string attributeFullName)
+        {
+            var typeCollection = new List<TypeDefinition>();
+            var types = moduleDefinition.GetTypes();
+
+            foreach (var type in types)
+                foreach (var attribute in type.CustomAttributes)
+                    if (attribute.AttributeType.FullName == attributeFullName)
+                        typeCollection.Add(type);
+
+            return typeCollection;
         }
     }
 }
