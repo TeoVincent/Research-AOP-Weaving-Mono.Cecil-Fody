@@ -62,6 +62,7 @@
     <Compile Include="MethodCallsCounterWeaver.cs" />
     <Compile Include="HellowWorldWeaver.cs" />
     <Compile Include="MethodInType.cs" />
+    <Compile Include="Weaver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

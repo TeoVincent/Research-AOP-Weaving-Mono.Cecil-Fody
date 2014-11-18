@@ -3,7 +3,7 @@ using Mono.Cecil.Cil;
 
 namespace TeoVincent.BasicFodyAddin.Fody
 {
-    public class MethodCallsCounterWeaver
+    public class MethodCallsCounterWeaver : IWeaver
     {
         private readonly IAttributeFinder atributeFinder;
         private readonly ModuleDefinition moduleDefinition;
@@ -17,7 +17,7 @@ namespace TeoVincent.BasicFodyAddin.Fody
             this.moduleDefinition = moduleDefinition;
         }
 
-        public void AddMethodCallsCounter()
+        public void Execute()
         {
             var mtCollection = atributeFinder.FindAllMethods(moduleDefinition, COUNT_CALLS_THEM_ATTRIBUTE_NAME);
 

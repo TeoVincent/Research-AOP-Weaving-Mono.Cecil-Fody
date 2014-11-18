@@ -4,6 +4,7 @@ using System.Reflection;
 using Mono.Cecil;
 using NUnit.Framework;
 using TeoVincent.BasicFodyAddin.Fody;
+using TeoVincent.Tests.WeaverCreators;
 
 namespace TeoVincent.Tests
 {
@@ -33,12 +34,10 @@ namespace TeoVincent.Tests
             File.Copy(assemblyPath, newAssemblyPath, true);
 
             var moduleDefinition = ModuleDefinition.ReadModule(newAssemblyPath);
-            var weavingTask = new HellowWorldWeaver
-            {
-                ModuleDefinition = moduleDefinition
-            };
 
+            IWeaver weavingTask = CreateWeavers(moduleDefinition);
             weavingTask.Execute();
+           
             moduleDefinition.Write(newAssemblyPath);
 
             assembly = Assembly.LoadFile(newAssemblyPath);
@@ -49,6 +48,16 @@ namespace TeoVincent.Tests
         public void PeVerify()
         {
             Verifier.Verify(assemblyPath, newAssemblyPath);
+        }
+
+        private IWeaver CreateWeavers(ModuleDefinition moduleDefinition)
+        {
+            var weavers = new WeaverCollection();
+
+            weavers.Add(new HellowWorldWeaverCreator(moduleDefinition).WeaverFactory());
+            weavers.Add(new MethodCallsCounterWeaverCreator(moduleDefinition).WeaverFactory());
+
+            return weavers;
         }
 #endif
     }

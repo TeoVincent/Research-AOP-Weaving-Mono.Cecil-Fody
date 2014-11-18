@@ -58,7 +58,10 @@
     <Compile Include="CallCounterWeaverTester.cs" />
     <Compile Include="EventsWeavingTester.cs" />
     <Compile Include="HelloWorldWeaverTester.cs" />
+    <Compile Include="WeaverCreators\HellowWorldWeaverCreator.cs" />
+    <Compile Include="WeaverCreators\MethodCallsCounterWeaverCreator.cs" />
     <Compile Include="Verifier.cs" />
+    <Compile Include="WeaverCreators\WeaverCreator.cs" />
     <Compile Include="WeaverTests.cs" />
   </ItemGroup>
   <ItemGroup>
